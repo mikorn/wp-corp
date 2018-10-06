@@ -10,8 +10,13 @@
 <div class="site mx-auto d-flex flex-column h-100 w-100 position-relative">
     <header class="site-header">
         <div class="container position-relative">
-            <div class="header-btn header-top shadow" id="header-btn">Меню</div>
             <div class="header-phone header-top shadow">+7 (123) 456-78-90</div>
+            <div class="header-search header-top shadow" id="header-search"><i class="fas fa-search"></i></div>
+            <div class="header-btn header-top shadow" id="header-btn">Меню</div>
+            <div class="search" id="search">
+                <div class="search-close display-4 text-light position-absolute" id="search-close"><i class="fas fa-times"></i></div>
+                <?php get_search_form(); ?>
+            </div>
             <?php if ( has_nav_menu('header') ): ?>
             <nav class="header-menu" id="header-menu">
                 <?php

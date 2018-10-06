@@ -1,9 +1,12 @@
 header.site-header
     .container.position-relative
-        #header-btn.header-btn.header-top.shadow
-            | Меню
         .header-phone.header-top.shadow
             | +7 (123) 456-78-90
+        #header-search.header-search.header-top.shadow
+            i.fas.fa-search
+        #header-btn.header-btn.header-top.shadow
+            | Меню
+        include search
         nav#header-menu.header-menu
             ul.h-100.w-100.d-flex.flex-column.justify-content-center.align-items-center
                 li

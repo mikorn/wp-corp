@@ -1,55 +1,50 @@
-<?php
-/**
- * The template for displaying search results pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
- *
- * @package sunrise
- */
+<?php get_header(); ?>
 
-get_header();
-?>
-
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main">
+<div class="site-content flex-grow-1 flex-shrink-0 mt-5 mt-md-0">
+    <section class="page mt-3">
+        <div class="container">
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title">
+			<header class="page-header mb-4">
+				<h1 class="page-title h2 font-weight-normal text-center text-muted">
 					<?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'sunrise' ), '<span>' . get_search_query() . '</span>' );
+					printf( esc_html__( 'Результат поиска по запросу: %s', 'sunrise' ), '<span>' . get_search_query() . '</span>' );
 					?>
 				</h1>
 			</header><!-- .page-header -->
 
 			<?php
-			/* Start the Loop */
+
 			while ( have_posts() ) :
 				the_post();
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
 				get_template_part( 'template-parts/content', 'search' );
 
-			endwhile;
+			endwhile; ?>
 
-			the_posts_navigation();
+            <div class="page-footer">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link text-info" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
+                        <li class="page-item"><a class="page-link text-info" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link text-info" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link text-info" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link text-info" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
+                    </ul>
+                </nav>
+            </div>
 
-		else :
+		<?php else :
 
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif;
 		?>
 
-		</main><!-- #main -->
-	</section><!-- #primary -->
+        </div>
+    </section>
+</div>
 
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer(); ?>
