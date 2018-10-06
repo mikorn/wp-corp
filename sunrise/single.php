@@ -1,17 +1,8 @@
-<?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package sunrise
- */
+<?php get_header(); ?>
 
-get_header();
-?>
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<div class="site-content flex-grow-1 flex-shrink-0 mt-5 mt-md-0">
+    <section class="page mt-3">
+        <div class="container">
 
 		<?php
 		while ( have_posts() ) :
@@ -19,19 +10,11 @@ get_header();
 
 			get_template_part( 'template-parts/content', get_post_type() );
 
-			the_post_navigation();
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
 		endwhile; // End of the loop.
 		?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+        </div>
+    </section>
+</div>
 
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer(); ?>
