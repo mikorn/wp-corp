@@ -12,14 +12,16 @@
         <div class="container position-relative">
             <div class="header-btn header-top shadow" id="header-btn">Меню</div>
             <div class="header-phone header-top shadow">+7 (123) 456-78-90</div>
+            <?php if ( has_nav_menu('header') ): ?>
             <nav class="header-menu" id="header-menu">
-                <ul class="h-100 w-100 d-flex flex-column justify-content-center align-items-center">
-                    <li class="text-center my-3"><a class="lead text-light text-uppercase" href="http://localhost:3000">Главная</a></li>
-                    <li class="text-center my-3"><a class="lead text-light text-uppercase" href="about.html">О компании</a></li>
-                    <li class="text-center my-3"><a class="lead text-light text-uppercase" href="objects.html">Наши объекты</a></li>
-                    <li class="text-center my-3"><a class="lead text-light text-uppercase" href="news.html">Новости</a></li>
-                    <li class="text-center my-3"><a class="lead text-light text-uppercase" href="contacts.html">Контакты</a></li>
-                </ul>
+                <?php
+                wp_nav_menu( array(
+                    'theme_location' => 'header',
+                    'menu_class' => 'h-100 w-100 d-flex flex-column justify-content-center align-items-center',
+                    'container' => false
+                ) );
+                ?>
             </nav>
+            <?php endif; ?>
         </div>
     </header>
