@@ -4,8 +4,8 @@
         <section class="page mt-3">
             <div class="container">
                 <div class="page-header mb-4">
-                    <h1 class="h2 page-title font-weight-normal text-center text-muted">Контакты</h1>
-                    <div class="page-subtitle lead text-center text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, iure?</div>
+                    <h1 class="h2 page-title font-weight-normal text-center text-muted"><?php the_title(); ?></h1>
+                    <div class="page-subtitle lead text-center text-secondary"><?= get_post_meta( $post->ID, 'page_description', true ); ?></div>
                 </div>
                 <div class="page-content">
                     <div class="row">
@@ -21,7 +21,9 @@
                         </div>
                     </div>
                     <div class="row mt-5">
-                        <div class="col-lg-4"><img class="contacts-img img-fluid" src="assets/images/contacts/office.jpg" alt="Office"></div>
+                        <div class="col-lg-4">
+                            <?php the_post_thumbnail( 'large', array( 'class' => 'contacts-img img-fluid' ) ); ?>
+                        </div>
                         <div class="col-lg-8">
                             <div class="card shadow mt-3 mt-lg-0">
                                 <div class="card-header bg-secondary">
