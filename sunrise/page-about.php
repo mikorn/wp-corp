@@ -3,10 +3,7 @@
     <div class="site-content flex-grow-1 flex-shrink-0 mt-5 mt-md-0">
         <section class="page mt-3">
             <div class="container">
-                <div class="page-header mb-4">
-                    <h1 class="h2 page-title font-weight-normal text-center text-muted"><?php the_title(); ?></h1>
-                    <div class="page-subtitle lead text-center text-secondary"><?= get_post_meta( $post->ID, 'page_description', true ); ?></div>
-                </div>
+                <?php get_template_part( 'template-parts/temp-page-header' ); ?>
                 <div class="page-content">
                     <section class="personal">
                         <div class="section-header mb-3">
